@@ -26,4 +26,8 @@ public class ProductRepository {
                 .filter(product -> product.getProductId().equals(productId))
                 .findFirst();
     }
+
+    public boolean delete(String productId) {
+        return productData.removeIf(product -> product.getProductId().equals(productId));
+    }
 }
