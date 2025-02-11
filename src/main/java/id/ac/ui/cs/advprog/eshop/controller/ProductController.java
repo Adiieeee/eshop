@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/product")
@@ -34,5 +35,16 @@ public class ProductController {
         List<Product> allProduct = service.findAll();
         model.addAttribute("products", allProduct);
         return "productList";
+    }
+
+    @GetMapping("/view/{productId}")
+    public String viewProduct(@PathVariable String productId, Model model) {
+        Optional<Product> product = service.findById(productId);
+        if (product.isPresent()) {
+            model.addAttribute("product", product.get());
+            return "viewProduct";
+        } else {
+            return "redirect:/product/list";
+        }
     }
 }
