@@ -48,6 +48,12 @@ public class ProductController {
         }
     }
 
+    @PostMapping("/update")
+    public String updateProduct(@ModelAttribute Product product) {
+        service.updateProduct(product.getProductId(), product);
+        return "redirect:/product/list";
+    }
+
     @GetMapping("/edit/{productId}")
     public String editProductPage(@PathVariable String productId, Model model) {
         Optional<Product> product = service.findById(productId);
@@ -62,6 +68,7 @@ public class ProductController {
     @PostMapping("/edit/{productId}")
     public String editProductPost(@PathVariable String productId, @ModelAttribute Product product) {
         service.updateProduct(productId, product);
-        return "redirect:/product/list";
+        return "redirect/product/list";
     }
+
 }
