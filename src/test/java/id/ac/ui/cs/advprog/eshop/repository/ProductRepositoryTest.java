@@ -95,5 +95,8 @@ class ProductRepositoryTest {
 
         assertTrue(productRepository.delete(product.getProductId()));
         assertFalse(productRepository.findById(product.getProductId()).isPresent());
+
+        //Test untuk Produk yang tidak ada
+        assertFalse(productRepository.delete("qb725e9f-1c39-460e-8960-71ne9gf63bd8"));
     }
 }
