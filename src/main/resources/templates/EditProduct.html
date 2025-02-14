@@ -10,23 +10,37 @@
 <div class="container">
     <h3>Edit Product</h3>
 
-    <form th:action="@{/product/update}" th:object="${product}" method="post">
-        <!-- Hidden field untuk menyimpan productId -->
+    <form th:action="@{/product/update}" th:object="${product}" method="post" onsubmit="return validateForm()">
         <input type="hidden" th:field="*{productId}">
 
         <div class="form-group">
             <label for="nameInput">Name</label>
-            <input th:field="*{productName}" type="text" class="form-control mb-4 col-4" id="nameInput" placeholder="Enter product name">
+            <input th:field="*{productName}" type="text" class="form-control mb-4 col-4" id="nameInput" placeholder="Enter product name" required>
         </div>
 
         <div class="form-group">
             <label for="quantityInput">Quantity</label>
-            <input th:field="*{productQuantity}" type="text" class="form-control mb-4 col-4" id="quantityInput" placeholder="Enter product quantity">
+            <input th:field="*{productQuantity}" type="text" class="form-control mb-4 col-4" id="quantityInput" placeholder="Enter product quantity" required>
         </div>
 
         <button type="submit" class="btn btn-primary">Update</button>
     </form>
 </div>
+
+<script>
+    function validateForm() {
+        let quantity = document.getElementById("quantityInput").value;
+        if (isNaN(quantity) || quantity.trim() === "") {
+            alert("Product quantity must be a number.");
+            return false;
+        }
+        if (parseInt(quantity) < 0) {
+            alert("Product quantity cannot be negative.");
+            return false;
+        }
+        return true;
+    }
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

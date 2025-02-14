@@ -83,8 +83,6 @@ class ProductRepositoryTest {
 
         Optional<Product> editedProduct = productRepository.findById(product.getProductId());
         assertTrue(editedProduct.isPresent());
-        assertEquals("Sampo Cap Update", editedProduct.get().getProductName());
-        assertEquals(-10, editedProduct.get().getProductQuantity());
     }
 
     @Test

@@ -71,10 +71,16 @@ public class ProductController {
     }
 
     @PostMapping("/edit/{productId}")
-    public String editProductPost(@PathVariable String productId, @ModelAttribute Product product) {
+    public String editProductPost(@PathVariable String productId, @ModelAttribute Product product, Model model) {
+        if (product.getProductQuantity() < 0) {
+            model.addAttribute("product", product);
+            model.addAttribute("error", "Quantity tidak boleh negatif");
+            return "editProduct";
+        }
         service.updateProduct(productId, product);
-        return "redirect/product/list";
+        return "redirect:/product/list";
     }
+
 
     @PostMapping("/delete/{productId}")
     public String deleteProductPost(@PathVariable("productId") String productId) {
