@@ -26,9 +26,15 @@ public class ProductController {
 
     @PostMapping("/create")
     public String createProductPost(@ModelAttribute Product product, Model model) {
+        if (product.getProductQuantity() < 0) {
+            model.addAttribute("product", product);
+            model.addAttribute("error", "Quantity tidak boleh negatif");
+            return "createProduct";
+        }
         service.create(product);
-        return "redirect:list";
+        return "redirect:/product/list";
     }
+
 
     @GetMapping("/list")
     public String productListPage(Model model) {
