@@ -35,7 +35,6 @@ public class ProductController {
         return "redirect:/product/list";
     }
 
-
     @GetMapping("/list")
     public String productListPage(Model model) {
         List<Product> allProduct = service.findAll();

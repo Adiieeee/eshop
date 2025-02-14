@@ -14,8 +14,7 @@
         <p th:text="${error}"></p>
     </div>
 
-
-    <form th:action="@{/product/create}" th:object="${product}" method="post">
+    <form th:action="@{/product/create}" th:object="${product}" method="post" onsubmit="return validateForm()">
         <div class="form-group">
             <label for="nameInput">Name</label>
             <input th:field="*{productName}" type="text" class="form-control mb-4 col-4" id="nameInput" placeholder="Enter product name" required>
@@ -31,7 +30,11 @@
 <script>
     function validateForm() {
         let quantity = document.getElementById("quantityInput").value;
-        if (quantity < 0) {
+        if (isNaN(quantity) || quantity.trim() === "") {
+            alert("Product quantity must be a number.");
+            return false;
+        }
+        if (parseFloat(quantity) < 0) {
             alert("Product quantity cannot be negative.");
             return false;
         }
