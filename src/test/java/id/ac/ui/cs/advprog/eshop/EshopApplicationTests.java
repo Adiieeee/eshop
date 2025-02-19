@@ -1,13 +1,14 @@
 package id.ac.ui.cs.advprog.eshop;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.SpringApplication;
+import static org.mockito.Mockito.*;
 
-@SpringBootTest
 class EshopApplicationTests {
 
 	@Test
-	void contextLoads() {
+	void mainMethodTest() {
+		// Simulasi pemanggilan main() untuk JaCoCo coverage
+		EshopApplication.main(new String[] {});
 	}
-
 }
