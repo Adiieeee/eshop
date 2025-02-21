@@ -21,7 +21,7 @@ public class ProductController {
     public String createProductPage(Model model) {
         Product product = new Product();
         model.addAttribute("product", product);
-        return "createProduct";
+        return "CreateProduct";
     }
 
     @PostMapping("/create")
@@ -29,7 +29,7 @@ public class ProductController {
         if (product.getProductQuantity() < 0) {
             model.addAttribute("product", product);
             model.addAttribute("error", "Quantity tidak boleh negatif");
-            return "createProduct";
+            return "CreateProduct";
         }
         service.create(product);
         return "redirect:/product/list";
@@ -39,7 +39,7 @@ public class ProductController {
     public String productListPage(Model model) {
         List<Product> allProduct = service.findAll();
         model.addAttribute("products", allProduct);
-        return "productList";
+        return "ProductList";
     }
 
     @GetMapping("/view/{productId}")
@@ -47,7 +47,7 @@ public class ProductController {
         Optional<Product> product = service.findById(productId);
         if (product.isPresent()) {
             model.addAttribute("product", product.get());
-            return "viewProduct";
+            return "ViewProduct";
         } else {
             return "redirect:/product/list";
         }
@@ -64,7 +64,7 @@ public class ProductController {
         Optional<Product> product = service.findById(productId);
         if (product.isPresent()) {
             model.addAttribute("product", product.get());
-            return "editProduct";
+            return "EditProduct";
         } else {
             return "redirect:/product/list";
         }
