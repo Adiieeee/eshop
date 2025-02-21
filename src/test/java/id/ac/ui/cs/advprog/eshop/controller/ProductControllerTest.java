@@ -122,6 +122,7 @@ class ProductControllerTest {
         verify(model, times(1)).addAttribute("error", "Quantity tidak boleh negatif");
         assertEquals("EditProduct", viewName);
     }
+
     @Test
     void testDeleteProductPost() {
         String viewName = productController.deleteProductPost("1");
