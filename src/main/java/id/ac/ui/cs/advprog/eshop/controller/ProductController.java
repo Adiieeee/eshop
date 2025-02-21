@@ -75,7 +75,7 @@ public class ProductController {
         if (product.getProductQuantity() < 0) {
             model.addAttribute("product", product);
             model.addAttribute("error", "Quantity tidak boleh negatif");
-            return "editProduct";
+            return "EditProduct";
         }
         service.updateProduct(productId, product);
         return "redirect:/product/list";
