@@ -1,10 +1,18 @@
 # Eshop
 ### Muhammad Adiansyah - 2306244980
 ---
-## Tutorial 1
-
+## Week 2
 ### Refleksi 1
- 
+> List the code quality issue(s) that you fixed during the exercise and explain your strategy on fixing them.
+- Membenarkan return pada file ProductController agar tidak terjadi error saat mendeploy
+- Membenarkan
+
+> Look at your CI/CD workflows (GitHub)/pipelines (GitLab). Do you think the current implementation has met the definition of Continuous Integration and Continuous Deployment?
+- Menurut saya implementasi saya terhadap Continous Integration dan Continous Deployment sudah sesuai karena saya menggunakan GiHub Actions dan koyeb yang memenuhi definisi CI/CD.
+
+
+## Week 1
+### Refleksi 1
 > Write clean code principles and secure coding practices that have been applied to your code.
 - Saya sudah menggunakan penggunaan nama yang benar sesuai dengan prinsip meaningful names dalam penamaan variable, function, class dan lainnya.
 - Saya menggunakan beberapa input validation untuk memastikan hal yang diinput sesuai dengan yang diminta seperti pada productQuantity saya memastikan hanya bisa menginput int positif.
