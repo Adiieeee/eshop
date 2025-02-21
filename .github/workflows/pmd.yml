@@ -25,18 +25,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Set up JDK 11
+      - name: Set up Java toolchain
         uses: actions/setup-java@v4
         with:
-          java-version: '11'
           distribution: 'temurin'
+          java-version: '21'
+          cache: 'gradle'
+
       - name: Run PMD
-        id: pmd
-        uses: pmd/pmd-github-action@967a81f8b657c87f7c3e96b62301cb1a48efef29
+        uses: pmd/pmd-github-action@v2
         with:
-          rulesets: 'rulesets/java/quickstart.xml'
+          version: '7.0.0-rc4'
           sourcePath: 'src/main/java'
+          rulesets: 'rulesets/java/quickstart.xml'
           analyzeModifiedFilesOnly: false
+
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v3
         with:
