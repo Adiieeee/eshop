@@ -35,7 +35,7 @@ class ProductControllerTest {
     void testCreateProductPage() {
         String viewName = productController.createProductPage(model);
         verify(model, times(1)).addAttribute(eq("product"), any(Product.class));
-        assertEquals("createProduct", viewName);
+        assertEquals("CreateProduct", viewName);
     }
 
     @Test
@@ -53,7 +53,7 @@ class ProductControllerTest {
         product.setProductQuantity(-1);
         String viewName = productController.createProductPost(product, model);
         verify(model, times(1)).addAttribute("error", "Quantity tidak boleh negatif");
-        assertEquals("createProduct", viewName);
+        assertEquals("CreateProduct", viewName);
     }
 
     @Test
@@ -61,7 +61,7 @@ class ProductControllerTest {
         when(productService.findAll()).thenReturn(List.of(new Product()));
         String viewName = productController.productListPage(model);
         verify(model, times(1)).addAttribute(eq("products"), any(List.class));
-        assertEquals("productList", viewName);
+        assertEquals("ProductList", viewName);
     }
 
     @Test
@@ -70,7 +70,7 @@ class ProductControllerTest {
         when(productService.findById("1")).thenReturn(Optional.of(product));
         String viewName = productController.viewProduct("1", model);
         verify(model, times(1)).addAttribute("product", product);
-        assertEquals("viewProduct", viewName);
+        assertEquals("ViewProduct", viewName);
     }
 
     @Test
@@ -95,7 +95,7 @@ class ProductControllerTest {
         when(productService.findById("1")).thenReturn(Optional.of(product));
         String viewName = productController.editProductPage("1", model);
         verify(model, times(1)).addAttribute("product", product);
-        assertEquals("editProduct", viewName);
+        assertEquals("EditProduct", viewName);
     }
 
     @Test
@@ -120,7 +120,7 @@ class ProductControllerTest {
         product.setProductQuantity(-1);
         String viewName = productController.editProductPost("1", product, model);
         verify(model, times(1)).addAttribute("error", "Quantity tidak boleh negatif");
-        assertEquals("editProduct", viewName);
+        assertEquals("EditProduct", viewName);
     }
 
     @Test
