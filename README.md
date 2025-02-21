@@ -5,7 +5,7 @@
 ### Refleksi 1
 > List the code quality issue(s) that you fixed during the exercise and explain your strategy on fixing them.
 - Membenarkan return pada file ProductController agar tidak terjadi error saat mendeploy
-- Membenarkan
+- Membenarkan pmd pada workflow GitHub
 
 > Look at your CI/CD workflows (GitHub)/pipelines (GitLab). Do you think the current implementation has met the definition of Continuous Integration and Continuous Deployment?
 - Menurut saya implementasi saya terhadap Continous Integration dan Continous Deployment sudah sesuai karena saya menggunakan GiHub Actions dan koyeb yang memenuhi definisi CI/CD.
