@@ -1,6 +1,44 @@
 # Eshop
 ### Muhammad Adiansyah - 2306244980
 ---
+## Week 3
+### Refleksi 1
+> Explain what principles you apply to your project!
+- SOLID
+- Don't Repeat Yourself
+- Keep It Simple, Stupid
+- You Aren't Gonna Need It
+- Model-View-Controller
+  
+> Explain the advantages of applying SOLID principles to your project with examples
+a. Maintability
+  - Dengan memisahkan tanggung jawab dan menggunakan antarmuka, perubahan hanya berdampak pada bagian terkait.
+  - Memisahkan tanggung jawab antara CarController dan CarService, serta menggunakan antarmuka CarService.
+b. Testability
+  - Injeksi dependensi memungkinkan pengujian unit tanpa ketergantungan pada implementasi konkret.
+  - Menggunakan antarmuka CarService dan injeksi dependensi untuk mempermudah pengujian.
+c. Flexibility & Extensibility
+  - Kode dapat diperluas tanpa harus mengubah struktur yang sudah ada.
+  - Menggunakan antarmuka CarService, memungkinkan berbagai implementasi tanpa mengubah kode utama.
+d. Readability & Understandability
+  - Kode lebih jelas karena setiap kelas dan antarmuka memiliki tanggung jawab spesifik.
+  - Memisahkan CarController dan CarService, serta membuat antarmuka CarService yang lebih spesifik.
+
+> Explian the disadvantages of not applying SOLID principles to yout projext with examples
+a. Tight Coupling
+  - Tanpa DIP (Dependency Inversion Principle), modul tingkat tinggi bergantung langsung pada implementasi konkret, membuat perubahan sulit.
+  - Menggunakan antarmuka CarService dan injeksi dependensi agar CarController tidak bergantung pada implementasi spesifik.
+b. Code Duplication
+  - Tanpa SRP (Single Responsibility Principle), kelas memiliki tanggung jawab ganda yang menyebabkan kode berulang dan sulit dipelihara.
+  - Memisahkan logika bisnis ke dalam CarService, sehingga tidak ada duplikasi dalam CarController.
+c. Difficulty in Extending Functionality
+  - Tanpa OCP (Open/Closed Principle), setiap fitur baru mengharuskan perubahan pada kode lama, meningkatkan risiko bug.
+  - Menggunakan CarService sebagai antarmuka agar bisa ditambahkan implementasi baru tanpa mengubah kode yang ada.
+d. Poor Readability & Maintainability
+  - Tanpa SRP dan ISP (Interface Segregation Principle), kelas menjadi terlalu besar dan sulit dimengerti.
+  - Memecah CarService menjadi antarmuka lebih kecil dan spesifik agar klien hanya menggunakan metode yang relevan.
+  
+---
 ## Week 2
 ### Refleksi 1
 > List the code quality issue(s) that you fixed during the exercise and explain your strategy on fixing them.
@@ -10,7 +48,7 @@
 > Look at your CI/CD workflows (GitHub)/pipelines (GitLab). Do you think the current implementation has met the definition of Continuous Integration and Continuous Deployment?
 - Menurut saya implementasi saya terhadap Continous Integration dan Continous Deployment sudah sesuai karena saya menggunakan GiHub Actions dan koyeb yang memenuhi definisi CI/CD.
 
-
+---
 ## Week 1
 ### Refleksi 1
 > Write clean code principles and secure coding practices that have been applied to your code.
