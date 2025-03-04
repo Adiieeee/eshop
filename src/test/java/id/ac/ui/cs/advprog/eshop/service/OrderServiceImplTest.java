@@ -11,9 +11,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.NoSuchElementException;
-
+import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -103,7 +102,7 @@ public class OrderServiceImplTest {
         Order order = orders.get(1);
         doReturn(order).when(orderRepository).findById(order.getId());
 
-        Order result = orderService.findById(orer.getId());
+        Order result = orderService.findById(order.getId());
         assertEquals(order.getId(), result.getId());
     }
 
