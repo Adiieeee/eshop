@@ -35,6 +35,7 @@ public class OrderServiceImpl implements OrderService {
     public List<Order> findAllByAuthor(String author) {
         return orderRepository.findAllByAuthor(author);
     }
+
     @Override
     public Order findById(String orderId) {
         return orderRepository.findById(orderId);
